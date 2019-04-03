@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 require 'rack/test'
 require 'split/dashboard'
@@ -19,7 +20,7 @@ describe Split::Dashboard do
   }
 
   let(:experiment_with_goals) {
-    Split::ExperimentCatalog.find_or_create({"link_color" => ["goal_1", "goal_2"]}, "blue", "red")
+    Split::ExperimentCatalog.find_or_create({ "link_color" => ["goal_1", "goal_2"] }, "blue", "red")
   }
 
   let(:metric) {
@@ -170,7 +171,7 @@ describe Split::Dashboard do
 
     it "calls disable of cohorting when action is disable" do
       post "/update_cohorting?experiment=#{experiment.name}", { "cohorting_action": "disable" }
-      
+
       expect(experiment.cohorting_disabled?).to eq true
     end
 
@@ -208,7 +209,7 @@ describe Split::Dashboard do
 
   it "should mark an alternative as the winner" do
     expect(experiment.winner).to be_nil
-    post "/experiment?experiment=#{experiment.name}", :alternative => 'red'
+    post "/experiment?experiment=#{experiment.name}", alternative: 'red'
 
     expect(last_response).to be_redirect
     expect(experiment.winner.name).to eq('red')
