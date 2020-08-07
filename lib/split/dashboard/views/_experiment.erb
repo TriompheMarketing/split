@@ -29,7 +29,7 @@
   <div class="experiment-header">
     <h2>
       Experiment: <%= experiment.name %>
-      <% puts experiment.name %>
+      <% puts "EXPERIMENT NAME: #{experiment.name}" %>
       <% if experiment.version > 1 %><span class='version'>v<%= experiment.version %></span><% end %>
       <% unless goal.nil? %><span class='goal'>Goal:<%= goal %></span><% end %>
       <% metrics = @metrics.select {|metric| metric.experiments.include? experiment} %>
@@ -69,7 +69,7 @@
 
     <% total_participants = total_completed = total_unfinished = 0 %>
     <% experiment.alternatives.each do |alternative| %>
-      <% puts experiment.alternatives %>
+      <% puts "EXPERIMENT NAME: #{experiment.alternatives}" %>
       <tr>
         <td>
           <% puts alternative.name %>
