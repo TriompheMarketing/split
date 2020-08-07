@@ -8,8 +8,10 @@
 
   <% paginated(@experiments).each do |experiment| %>
     <% if experiment.goals.empty? %>
+      <% puts "No Goals" %>
       <%= erb :_experiment, :locals => {:goal => nil, :experiment => experiment} %>
     <% else %>
+      <% puts "Goals" %>
       <%= erb :_experiment_with_goal_header, :locals => {:experiment => experiment} %>
       <% experiment.goals.each do |g| %>
         <%= erb :_experiment, :locals => {:goal => g, :experiment => experiment} %>

@@ -30,6 +30,7 @@ module Split
       else
         @current_env = "Rack: #{Rack.version}"
       end
+      puts "EXPERIMENT INDEX"
       erb :index
     end
 
