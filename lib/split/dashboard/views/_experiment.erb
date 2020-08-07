@@ -69,7 +69,7 @@
 
     <% total_participants = total_completed = total_unfinished = 0 %>
     <% experiment.alternatives.each do |alternative| %>
-      <% puts "EXPERIMENT NAME: #{experiment.alternatives}" %>
+      <% puts "ALTERNATIVE NAME: #{alternative.name}" %>
       <tr>
         <td>
           <% puts alternative.name %>
