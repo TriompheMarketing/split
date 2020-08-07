@@ -3,7 +3,6 @@
 <% else %>
   <% experiment_class = "experiment" %>
 <% end %>
-<% puts experiment_class %>
 <% experiment.calc_winning_alternatives %>
 <%
   extra_columns = []
@@ -33,7 +32,6 @@
       <% if experiment.version > 1 %><span class='version'>v<%= experiment.version %></span><% end %>
       <% unless goal.nil? %><span class='goal'>Goal:<%= goal %></span><% end %>
       <% metrics = @metrics.select {|metric| metric.experiments.include? experiment} %>
-      <% puts metrics %>
       <% unless metrics.empty? %>
         <span class='goal'>Metrics:<%= metrics.map(&:name).join(', ') %></span>
       <% end %>
@@ -72,7 +70,6 @@
       <% puts "ALTERNATIVE NAME: #{alternative.name}" %>
       <tr>
         <td>
-          <% puts alternative.name %>
           <%= alternative.name %>
           <% if alternative.control? %>
             <em>control</em>
